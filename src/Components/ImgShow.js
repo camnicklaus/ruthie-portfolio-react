@@ -119,7 +119,6 @@ const MyLoader = () => (
 )
 const ImgShow = (props) => {
     const { closeFullSize, id, onClickRight, onClickLeft } = props;
-    // console.log('showing FS img', 'params', props)
     return (
         <Wrap>
             <NavWrap navSide={'left'} onClick={onClickLeft}>

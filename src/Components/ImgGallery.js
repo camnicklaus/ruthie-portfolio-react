@@ -49,7 +49,6 @@ class ImageGallery extends Component {
         }
     }
     onClick = (currentImg) => {
-        console.log('onclick!!!', currentImg)
         this.setState({ currentImg, currentImgId: currentImg.id, showFullSize: true });
         this.props.history.push(`/fullsize/${currentImg.id}`)
         window.scrollTo(0,0);

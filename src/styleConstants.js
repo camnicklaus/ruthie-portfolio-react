@@ -9,7 +9,10 @@ export const WHITE = '#fff';
 export const BLACK = '#110c11';
 export const GREEN = '#D0E6CA';
 export const DARK_GREEN = '#648566';
+export const PINK = '#F1899B'
 
+// #F29AAA
+// #FFB6C3
 // layout //
 
 export const DEFAULT_UNIT = 10;

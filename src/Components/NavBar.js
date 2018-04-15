@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { PADDING } from '../styleConstants';
+import { NavLink, withRouter } from 'react-router-dom';
+import { PADDING, PINK, DARK_GREEN } from '../styleConstants';
 
 const NavStyle = styled.ul`
     list-style: none;
@@ -14,22 +14,27 @@ const NavLi = styled.li`
 `;
 const MyNavLink = styled(NavLink)`
     text-decoration: none;
-    color: black;
-    &.${props => props.activeClassName} {
-        color: pink;
+    color: ${props => props.whitelistroute ? PINK : 'black'};
+    &.active {
+        color: ${PINK};
     }
 `;
-
 MyNavLink.defaultProps = {
-    activeClassName: 'active'
+    activeClassName: 'active',
 }
 
-const NavBar = () => (
-    <NavStyle>
-        <NavLi><MyNavLink exact to='/'>Illustrations</MyNavLink></NavLi>
-        <NavLi><MyNavLink to='/about'>About</MyNavLink></NavLi>
-        <NavLi><MyNavLink to='/contact'>Contact</MyNavLink></NavLi>
-    </NavStyle>
-);
+const NavBar = ({location}) => {
+    let whitelist = false;
+    if (/fullsize/.test(location.pathname)) {
+        whitelist = true
+    }
+    return (
+        <NavStyle>
+            <NavLi><MyNavLink exact to='/' whitelistroute={whitelist ? 1 : 0}>Illustrations</MyNavLink></NavLi>
+            <NavLi><MyNavLink to='/about'>About</MyNavLink></NavLi>
+            <NavLi><MyNavLink to='/contact'>Contact</MyNavLink></NavLi>
+        </NavStyle>
+    );
+} 
 
-export default NavBar;
+export default withRouter(NavBar);

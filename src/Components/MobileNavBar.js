@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { PADDING, GREEN } from  '../styleConstants';
+import { MyNavLink } from './StyledComponents';
 
 const MobileNavStyle = styled.ul`
     max-height: 150px;
@@ -26,19 +27,19 @@ const NavLi = styled.li`
     padding: ${PADDING}px 0px;
     width: 100%;
 `;
-const MyNavLink = styled(NavLink)`
-    text-decoration: none;
-    color: black;
-    &.${props => props.activeClassName} {
-        color: pink;
+const MobileNavBar = (props) => {
+    const { mobileNavOpen, toggleMenu, location } = props;
+    let whitelist = false;
+    if (/fullsize/.test(location.pathname)) {
+        whitelist = true
     }
-`;
-const MobileNavBar = ({mobileNavOpen, toggleMenu}) => (
-    <MobileNavStyle navOpen={mobileNavOpen}>
-        <NavLi onClick={toggleMenu}><MyNavLink exact to='/'>Illustrations</MyNavLink></NavLi>
-        <NavLi onClick={toggleMenu}><MyNavLink to='/about'>About</MyNavLink></NavLi>
-        <NavLi onClick={toggleMenu}><MyNavLink to='/contact'>Contact</MyNavLink></NavLi>
-        <BorderBottom />
-    </MobileNavStyle>
-);
-export default MobileNavBar;
+    return (
+        <MobileNavStyle navOpen={mobileNavOpen}>
+            <NavLi onClick={toggleMenu}><MyNavLink exact to='/' whitelistroute={whitelist ? 1 : 0}>Illustrations</MyNavLink></NavLi>
+            <NavLi onClick={toggleMenu}><MyNavLink to='/about'>About</MyNavLink></NavLi>
+            <NavLi onClick={toggleMenu}><MyNavLink to='/contact'>Contact</MyNavLink></NavLi>
+            <BorderBottom />
+        </MobileNavStyle>
+    );
+} 
+export default withRouter(MobileNavBar);

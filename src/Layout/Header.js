@@ -42,7 +42,6 @@ class Header extends Component {
     }
     render() {
         const { mediaMobile } = this.props;
-        //  console.log('header: ', this.props)
         return (
             <HeaderWrap
                 mediaMobile={mediaMobile}
