@@ -7,7 +7,7 @@ const About = () => (
 		<Section>
 			please feel free to email me!
 			<address style={{fontStyle: 'inherit'}}>
-				<a style={{color: DARK_GREEN}} href='mailto:ruthiesuniform@gmail.com?subject:from Your site'>ruthiesuniform</a>
+				<a style={{color: DARK_GREEN}} href='mailto:ruthiesuniform@gmail.com?subject:from Your site'>ruthiesuniform@gmail.com</a>
 			</address>
 		</Section>
 

@@ -19,8 +19,8 @@ const FooterText = styled.p`
 
 const Footer = ({mediaMobile}) => (
     <FooterWrap mediaMobile={mediaMobile}>
-        <FooterText justifyContent="flex-start">Ruthie Nicklaus</FooterText>
-        <FooterText justifyContent="flex-end">Site by &nbsp; <span><a href='http://cameronnicklaus.com/' target="_blank"> Cameron Nicklaus</a></span></FooterText>
+        <FooterText justifyContent="flex-start">All images &copy; 2018 Ruthie Nicklaus</FooterText>
+        <FooterText justifyContent="flex-end">Site by &nbsp; <span><a href='http://camnicklaus.surge.sh/' target="_blank"> Cameron Nicklaus</a></span></FooterText>
     </FooterWrap>
 )
 export default Footer;
