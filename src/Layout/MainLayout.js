@@ -10,9 +10,8 @@ const Layout = styled.div`
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr ${FOOTER_HEIGHT}px;
-    @media (max-width: ${MOBILE}) {
-        /* width: 100vw; */
-    }
+    /* @media (max-width: ${MOBILE}) {
+    } */
 `;
 
 const MainLayout = ({ children, mediaMobile }) => {

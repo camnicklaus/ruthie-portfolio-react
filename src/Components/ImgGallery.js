@@ -10,13 +10,26 @@ import ImgShow from '../Components/ImgShow';
 
 const GalleryWrap = styled.section`
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, calc(260)); */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 28px;
     @media (max-width: ${MOBILE}px) {
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     }
 `;
+const GalleryItemFallback = styled.div`
+    box-sizing: border-box;
+    display: table-cell;
+    float: left;
+    padding: ${PADDING + 'px'};
+    min-width: 25%;
+    max-width: 33%;
+    @media (max-width: ${MOBILE + 'px'}) {
+        min-width: 33%;
+        max-width: 50%;
+        padding: ${PADDING / 2 + 'px'};
+    }
+`;
+
 const GalleryItem = styled.div`
 `;
 
@@ -24,9 +37,9 @@ const GalleryImg = styled.img`
     width: 100%;
 `;
 
-const images = (onClick) => (fullsizeImgs.map((img, index) => {
+const images = (onClick, gridSupported) => (fullsizeImgs.map((img, index) => {
     let refs = {};
-    return (
+    return gridSupported ? (
     <GalleryItem key={index}>
         <GalleryImg
             src={img.thumb}
@@ -36,8 +49,18 @@ const images = (onClick) => (fullsizeImgs.map((img, index) => {
             onClick={() => onClick(refs[index].props)} 
         />
     </GalleryItem>
+    ) : (
+        <GalleryItemFallback key={index}>
+            <GalleryImg
+                src={img.thumb}
+                fullsizeImgRef={img.fullSize}
+                id={index} 
+                ref={imgRef => refs[index] = imgRef} 
+                onClick={() => onClick(refs[index].props)} 
+            />
+        </GalleryItemFallback>
     )
-}))
+}));
 
 class ImageGallery extends Component {
     constructor(props) {
@@ -45,7 +68,8 @@ class ImageGallery extends Component {
         this.state = {
             currentImg: null,
             currentImgId: null,
-            showFullSize: false
+            showFullSize: false,
+            gridSupported: CSS.supports('display', 'grid')
         }
     }
     onClick = (currentImg) => {
@@ -77,6 +101,7 @@ class ImageGallery extends Component {
         window.scrollTo(0,0);
     }
     render() {
+        console.log(this.state.gridSupported);
         return (
             <div>
                 <Route path={`/fullsize/:id`} render={({ match }) => (
@@ -85,7 +110,6 @@ class ImageGallery extends Component {
                         onSwipedRight={this._swipedRight}
                         style={{
                             marginBottom: PADDING * 2,
-                            // minHeight: '50vw'
                         }}
                     >
                         <ImgShow
@@ -99,7 +123,7 @@ class ImageGallery extends Component {
                     </Swipeable>)}
                 />
             <GalleryWrap>
-                {images(this.onClick)}
+                {images(this.onClick, this.state.gridSupported)}
             </GalleryWrap>
             </div>
         )
