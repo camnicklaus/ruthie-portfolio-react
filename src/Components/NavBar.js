@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink, withRouter } from 'react-router-dom';
-import { PADDING, PINK, DARK_GREEN } from '../styleConstants';
+import { PADDING, PINK } from '../styleConstants';
 
 const NavStyle = styled.ul`
     list-style: none;

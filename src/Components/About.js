@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BodyContentWrap, P } from '../Components/StyledComponents';
 import { PADDING } from '../styleConstants';
 

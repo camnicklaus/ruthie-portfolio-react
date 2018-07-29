@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
-import { PADDING, MOBILE, DESKTOP_WIDTH } from '../styleConstants';
+import { MOBILE, DESKTOP_WIDTH } from '../styleConstants';
 import { fullsizeImgs } from '../images/portfolio';
-import Loader from 'react-loader';
+// import Loader from 'react-loader';
 import Img from 'react-image';
 // import {DoubleBounce} from 'styled-spinkit';
 
@@ -37,6 +37,8 @@ const Arrow = styled.div`
             return 'rotate(-45deg)';
             case 'down':
             return 'rotate(45deg)';
+            default:
+            return;
         }
     }};
     ${NavWrap}:hover & {

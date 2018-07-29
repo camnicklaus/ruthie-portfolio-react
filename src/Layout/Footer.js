@@ -35,7 +35,7 @@ const Footer = ({mediaMobile}) => {
                 justifyContent="flex-end"
                 style={{float: 'right'}}
             >
-                Site by &nbsp; <span><a href='http://camnicklaus.surge.sh/' target="_blank"> Cameron Nicklaus</a></span>
+                Site by &nbsp; <span><a href='http://camnicklaus.surge.sh/' rel="noopener noreferrer" target="_blank"> Cameron Nicklaus</a></span>
             </FooterText>
         </FooterWrap>
     ) : (
@@ -49,7 +49,7 @@ const Footer = ({mediaMobile}) => {
                 justifyContent="flex-end"
                 style={{float: 'right'}}
             >
-                Site by &nbsp; <span><a href='http://camnicklaus.surge.sh/' target="_blank"> Cameron Nicklaus</a></span>
+                Site by &nbsp; <span><a href='http://camnicklaus.surge.sh/' rel="noopener noreferrer" target="_blank"> Cameron Nicklaus</a></span>
             </FooterText>
         </FooterWrapFallback>
     )

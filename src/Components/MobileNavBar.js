@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { PADDING, GREEN } from  '../styleConstants';
 import { MyNavLink } from './StyledComponents';
 

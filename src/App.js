@@ -1,7 +1,5 @@
 import React from "react";
-import ReactDOM from 'react-dom';
 import { withRouter } from 'react-router-dom';
-import styled from 'styled-components';
 import MediaQuery from 'react-responsive';
 import { MOBILE } from  './styleConstants';
 

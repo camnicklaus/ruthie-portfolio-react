@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BodyContentWrap, P } from '../Components/StyledComponents';
+import React from "react";
+import { BodyContentWrap } from '../Components/StyledComponents';
 import ImgGallery from '../Components/ImgGallery';
 
 const Home = (props) => (

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import styled from 'styled-components';
 import HeaderTitle from '../Components/HeaderTitle';
 import MobileNavBar from '../Components/MobileNavBar';
 import NavBar from '../Components/NavBar';
 import { PADDING } from '../styleConstants';
-var throttle = require('lodash.throttle');
 
 const HeaderWrap = styled.section`
     display: flex;

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from 'styled-components';
 import { MOBILE, DESKTOP_WIDTH, HEADER_HEIGHT, MOBILE_HEADER_HEIGHT, FOOTER_HEIGHT } from '../styleConstants';
 

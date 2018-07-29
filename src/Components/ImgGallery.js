@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Swipeable from 'react-swipeable'
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
 import { PADDING, MOBILE } from  '../styleConstants';
 
 import { fullsizeImgs } from '../images/portfolio';
